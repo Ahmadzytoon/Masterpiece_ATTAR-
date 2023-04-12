@@ -65,8 +65,6 @@
                       
                   @else
                   <ul class="devided">
-
-                        
                     <li>
                       <a href={{route('user.login')}}> تسجيل دخول </a>
                     </li>
@@ -76,7 +74,6 @@
                     <li>
                       <a href={{route('user.signup.index')}}>انشاء حساب </a>
                     </li>
-                    
                   </ul>
                   @endif
                 </div>
@@ -89,9 +86,7 @@
                   <form class="search" action="{{ route('user.search') }}" method="post">
                     @csrf  
                     <input type="text" name="search" placeholder="بحث ">
-                      
                       <button type="submit" class="button"><i class='bx bx-search-alt'></i></button>
-
                   </form>
                   <ul class="user-menu">
                       <li><a href="#"><i class='bx bx-bell'></i></a></li>
@@ -198,15 +193,15 @@
                                   </div>
                                   <div class="col-3">
                                       <div class="box" >
-                                        <a href="{{route('user.All_Product.create')}}">  <img src={{URL::asset('./images/عروض-حتى-25.png')}}></a>
+                                        <a href="{{route('user.All_Product.create')}}">  <img src={{URL::asset('./images/عروض-حتى-25.png')}} alt=""></a>
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </li>
                       <!-- end mega menu -->
-                      <li><a href="products.html">طلبك الخاص</a></li>
-                      <li><a href="products.html">مجلة عطارJO</a></li>
+                      <li><a href="{{route('user.PrivateOrder.index')}}">طلبك الخاص</a></li>
+                      <li><a href="{{route('user.blog.index')}}">مجلة عطارJO</a></li>
                       <li><a href={{route('user.contact.index')}}>تواصل معنا</a></li>
                   </ul>
               </div>

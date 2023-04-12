@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
-
-
-class AllProductController extends Controller
+class PrivateOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +17,8 @@ class AllProductController extends Controller
     {
       $products = Product::all();
       $category = Category::all();
-      // dd($products);
-      return view('user.product',['products'=>$products,'category'=>$category,'productsNav'=>$products,'categoryNav'=>$category]);
-
+      return view('user.PrivateOrder',['products'=>$products,'category'=>$category,'productsNav'=>$products,'categoryNav'=>$category]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -31,13 +26,7 @@ class AllProductController extends Controller
      */
     public function create()
     {
-      $products = Product::where('is_sale',1)->get();
-      $category = Category::all();
-
-      $productsnav = Product::all();
-// dd($products);
-      return view('user.product',['products'=>$products,'category'=>$category,'productsNav'=>$productsnav,'categoryNav'=>$category]);
-
+    
     }
 
     /**
@@ -48,7 +37,10 @@ class AllProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+    dd($request);
+
+
     }
 
     /**
@@ -59,14 +51,7 @@ class AllProductController extends Controller
      */
     public function show($id)
     {
-            
-      $products = Product::where('category_id',$id)->get();
-      $category = Category::all();
-      $productsnav = Product::all();
-
-// dd($products);
-      return view('user.product',['products'=>$products,'category'=>$category,'productsNav'=>$productsnav,'categoryNav'=>$category]);
-
+        //
     }
 
     /**

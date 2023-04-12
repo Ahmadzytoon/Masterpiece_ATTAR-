@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Contact;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
@@ -16,8 +22,19 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+      $number_of_admin =User::where('role','admin')->count();
+      $number_of_users =User::where('role','user')->count();
+      $number_of_category =Category::all()->count();
+      $number_of_messages =Contact::all()->count();
+      $number_of_Comment =Comment::all()->count();
+      $Last_request_date =Order::all()->first();
+      $number_of_product =Product::all()->count();
+      $number_of_orders =Order::all()->count();
+      $number_of_Blog =Blog::all()->count();
+      $number_of_product_offered =Product::where('is_sale' , '=' , 1)->count();
 
-      return view('admin.dashboard');
+
+      return view('admin.dashboard',['number_of_admin'=>$number_of_admin ,'number_of_users'=>$number_of_users ,'number_of_category'=>$number_of_category,'number_of_messages'=>$number_of_messages,'number_of_product'=>$number_of_product,'number_of_orders'=>$number_of_orders,'number_of_product_offered'=>$number_of_product_offered,'number_of_Comment'=>$number_of_Comment,'number_of_Blog'=>$number_of_Blog,'Last_request_date'=>$Last_request_date]);
 
 
 }

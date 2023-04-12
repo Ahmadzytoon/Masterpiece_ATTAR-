@@ -17,28 +17,26 @@ class ContuctController extends Controller
 
 }
 
-   
+  
+//     // Store Contact Form data
+//     public function ContactUsForm(Request $request) {
+
+//       // Form validation
+//       $this->validate($request, [
+//           'name' => 'required',
+//           'email' => 'required|email',
+//           'phoneNumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+//           'subject'=>'required',
+//           'message' => 'required'
+//        ]);
+
+//       //  Store data in database
+//       Contact::create($request->all());
 
 
-    // Store Contact Form data
-    public function ContactUsForm(Request $request) {
+//   return redirect()->route('user.contact')->with('success', 'We have received your message and would like to thank you for writing to us.');
 
-      // Form validation
-      $this->validate($request, [
-          'name' => 'required',
-          'email' => 'required|email',
-          'phoneNumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-          'subject'=>'required',
-          'message' => 'required'
-       ]);
-
-      //  Store data in database
-      Contact::create($request->all());
-
-
-  return redirect()->route('user.contact')->with('success', 'We have received your message and would like to thank you for writing to us.');
-
-}
+// }
 
 public function destroy($id)
 {

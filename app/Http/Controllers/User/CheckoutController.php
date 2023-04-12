@@ -14,10 +14,11 @@ class CheckoutController extends Controller
 {
 
 
-  // public function __construct()
-  // {
-  //     $this->middleware('CheckLogin');
-  // }
+  public function __construct()
+  {
+      $this->middleware('CheckLogin');
+      
+  }
 
 
 

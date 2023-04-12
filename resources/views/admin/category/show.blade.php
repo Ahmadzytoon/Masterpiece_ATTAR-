@@ -6,12 +6,8 @@ Category
 
 @section('css')
 <link rel="stylesheet" href="{{asset('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
-
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}
-">
-<link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}
-">
-
+<link rel="stylesheet" href="{{asset('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 @endsection
 @section('CategoryShow')
 active
@@ -67,13 +63,11 @@ Category Table
                     <td>{{$value->id}}</td>
                     <td>{{$value->name_category}}</td>
                     <td>{{$value->description	}}</td>
-                    <td><img src="{{URL::asset("storage/image/".$value->image)}}" alt="" style="width: 75px ;    height: 75px"></td>
-                
-                    
+                    <td><img src="{{URL::asset("storage/image/".$value->image)}}" alt="" style="width:75px;height:75px"></td>
                     <td>
-                      <a href="{{Route('admin.category.edit',$value->id)}}">
-                        <button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
-                      </a>
+                        <a href="{{Route('admin.category.edit',$value->id)}}">
+                          <button type="button" class="btn btn-block bg-gradient-success btn-sm">Edit</button>
+                        </a>
                     </td>
                     <td>
                         <form action="{{Route('admin.category.destroy',$value->id)}}" method="post">
@@ -88,7 +82,7 @@ Category Table
             </tbody>
           </table>
         </div>
-        <!-- /.card-body -->
+        <!-- /.card-body --> 
       </div>
       <!-- /.card -->
     </div>

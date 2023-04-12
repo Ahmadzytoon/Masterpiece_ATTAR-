@@ -34,9 +34,9 @@ control panel
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              {{-- <h3>{{$totalReservation}}</h3> --}}
+              <h3>{{$number_of_orders}}</h3>
 
-              <p> Total Reservation </p>
+              <p> Total Orders </p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -50,9 +50,9 @@ control panel
         <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              {{-- <h3>{{$todayReservation}}</h3> --}}
+              <h3>{{$number_of_category}}</h3>
 
-              <p> All Reservation For Today </p>
+              <p> Total Categores </p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -64,9 +64,22 @@ control panel
           <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              {{-- <h3>{{$thisMonthReservation}}</h3> --}}
+              <h3>{{$number_of_messages}}</h3>
 
-              <p> All Reservation For this Month </p>
+              <p> Total Messages </p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+          </div>
+          <div class="col-lg-3 col-6">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>{{$Last_request_date->order_date}}</h3>
+
+              <p> Last Order Date </p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -78,9 +91,9 @@ control panel
           <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              {{-- <h3>{{$thisYearReservation}}</h3> --}}
+              <h3>{{$number_of_Comment}}</h3>
 
-              <p> All Reservation For this Year </p>
+              <p> Total Comment </p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -88,21 +101,32 @@ control panel
             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
           </div>
-
-
       </div>
-
-      
       <div class="row">
         {{-- Activities --}}
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              {{-- <h3>{{$totalActivities}}</h3> --}}
+              <h3>{{$number_of_product}}</h3>
               {{-- <sup style="font-size: 20px">%</sup> --}}
 
-              <p> Total Activities </p>
+              <p> Total Products </p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              <h3>{{$number_of_product_offered}}</h3>
+              {{-- <sup style="font-size: 20px">%</sup> --}}
+
+              <p> Number Of Product Offered </p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -115,9 +139,9 @@ control panel
 
           <div class="small-box bg-warning">
             <div class="inner">
-              {{-- <h3>{{ $totalAllUser }}</h3> --}}
+              <h3>{{ $number_of_Blog }}</h3>
 
-              <p>  Total All  Users </p>
+              <p>  Total All  Post </p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -130,7 +154,7 @@ control panel
 
           <div class="small-box bg-warning">
             <div class="inner">
-              {{-- <h3>{{ $totalUser }}</h3> --}}
+              <h3>{{ $number_of_users  }}</h3>
 
               <p>  All  Users </p>
             </div>
@@ -146,7 +170,7 @@ control panel
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              {{-- <h3>{{$totalAdmin}}</h3> --}}
+              <h3>{{$number_of_admin}}</h3>
 
               <p> All Admin </p>
             </div>
@@ -167,7 +191,7 @@ control panel
  
       <!-- /.row -->
       <!-- Main row -->
-      <div class="row">
+      {{-- <div class="row">
         <!-- Left col -->
         <section class="col-lg-7 connectedSortable">
           <!-- Custom tabs (Charts with tabs)-->
@@ -677,7 +701,7 @@ control panel
           <!-- /.card -->
         </section>
         <!-- right col -->
-      </div>
+      </div> --}}
       <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
   </section>

@@ -370,36 +370,48 @@
 
             
           </div>
+          <?php $i = 1?>
+          @foreach ($data as $item)
+              
+        @if($i%2!=0)
           <div class="blog">
               <div class="blog-img">
-                  <img src="https://www.etaraonline.com/photos/shares/2022/s/zbvv.jpg" alt="">
+                <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+
               </div>
               <div class="blog-info">
                   <div class="blog-title">
-                   <h2>  المكملات الغذائية لبشرة مشرقة وشعر صحي</h2> 
+                   <h2> {{$item->title}}</h2> 
 
                   </div>
                   <div class="blog-preview">
-                      ما يبني جسمك هو ما تأكله، وما تأكله يمكن أن ينعكس غالباً على بشرتك وشعرك وأظافرك. إذا كنت تأكل الكثير من الأطعمة المصنعة عالية السكر، فقد يؤدي ذلك إلى ظهور حب الشباب وحالة الالتهاب المسببة للشيخوخة المبكرة....                    </div>
-                  <button class="btn-flat btn-hover">قراءة المزيد</button>
-              </div>
-          </div>
-          <div class="blog row-revere">
-              <div class="blog-img">
-                  <img src="https://www.etaraonline.com/photos/shares/2022/s/bnbb.jpg" alt="">
-              </div>
-              <div class="blog-info">
-                  <div class="blog-title">
-                      <h2>   تصميم أفضل روتين صحي لنفسك.</h2> 
-                     
+                    {{$item->short_description}}                 </div>
+                    <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a>
                   </div>
-                  <div class="blog-preview">
-                      لا توجد طريقة مثالية للتعامل مع الصحة والعافية. محاولة معرفة من أين تبدأ في تجميع روتين العافية الخاص بك يمكن أن يثير لديك الشعور بالإرهاق. تساهم مكونات لا حصر لها في الصحة العقلية والجسدية، لذلك من الضروري تقييم نمط حياتك وأهدافك عند تصميم أفضل روتين صحي لنفسك.                    </div>
-                  <button class="btn-flat btn-hover">اقرأ المزيد</button>
-              </div>
           </div>
+
+          @else
+          <div class="blog row-revere">
+            <div class="blog-img">
+                <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+            </div>
+            <div class="blog-info">
+                <div class="blog-title">
+                    <h2> {{$item->title}}</h2> 
+                   
+                </div>
+                <div class="blog-preview">
+                  {{$item->short_description}}                 
+                  <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a>
+                </div>
+        </div>
+        </div>
+        @endif
+        <?php ++$i?>
+          @endforeach
+        
           <div class="section-footer">
-              <a href="#" class="btn-flat btn-hover">للمزيد</a>
+            <a href="{{route('user.blog.index')}}" class="btn-flat btn-hover">للمزيد</a>
           </div>
       </div>
   </div>

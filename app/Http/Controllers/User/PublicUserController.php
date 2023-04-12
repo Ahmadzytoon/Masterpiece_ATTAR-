@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Cart;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -96,9 +97,9 @@ class PublicUserController extends Controller
 }
         $products = Product::all();
         $category = Category::all();
-    
+        $data=Blog::all();
 
-        return view('user.index',['products'=>$products,'category'=>$category,'productsNav'=>$products,'categoryNav'=>$category]);
+        return view('user.index',['products'=>$products,'category'=>$category,'productsNav'=>$products,'categoryNav'=>$category,'data'=>$data]);
 
     }
     public function show(){
