@@ -284,16 +284,18 @@
 <!-- _______________________________________________________________________ -->
   <!-- special product -->
   <div class="img-land">
-  
+    <div class="section-land">
+      <h2>      ꧂  أفضل  العروض  ꧁   </h2>
+  </div>
   </div>
   <!-- end special product -->
 
   <!-- product list -->
   <div class="section">
       <div class="container">
-          <div class="section-header">
+          {{-- <div class="section-header">
               <h2>      ꧂  أفضل  العروض  ꧁   </h2>
-          </div>
+          </div> --}}
           <div class="row" >
             {{-- _________________ --}}
             <?php $i=0 ?>
@@ -386,7 +388,7 @@
                   </div>
                   <div class="blog-preview">
                     {{$item->short_description}}                 </div>
-                    <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a>
+                    {{-- <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a> --}}
                   </div>
           </div>
 
@@ -402,7 +404,7 @@
                 </div>
                 <div class="blog-preview">
                   {{$item->short_description}}                 
-                  <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a>
+                  {{-- <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a> --}}
                 </div>
         </div>
         </div>

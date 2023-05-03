@@ -18,7 +18,7 @@
     <x-auth-session-status :status="session('status')" />
 
 {{-- {{dd('login')}} --}}
-    <a href="{{route('user.index')}}"><img width="150px" id="logoLogin" src="../images/logo copy.png" alt="logo"></a>
+    <a href="{{route('user.index')}}"><img width="150px" id="logoLogin" src="../images/logocopy.png" alt="logo"></a>
 
 <form method="POST" action="{{ route('login') }}" id="loginForm">
     @csrf
@@ -27,7 +27,7 @@
         {{-- <x-input-label for="email" :value="__('Email')" /> --}}
         <input id="inputLoginText" placeholder="Your email"  type="email" name="email" :value="old('email')" required autofocus>
 
-     <p id="p1"> <x-input-error :messages="$errors->get('email')" /></p>   
+     <p id="p1" > <x-input-error :messages="$errors->get('email')" style="color: red;" /></p>   
     </div>
     
     <div class="qqq">
@@ -35,10 +35,10 @@
 
         <input id="inputLoginPassword" type="password" placeholder="Enter password"  name="password" required autocomplete="current-password">
         
-    <p id="p2"><x-input-error :messages="$errors->get('password')" /></p>
+    <p id="p2" ><x-input-error :messages="$errors->get('password')" style="color: red;" /></p>
     </div>
 
-    <div> 
+    {{-- <div> 
         @if (Route::has('password.request'))
         <a  href="{{ route('password.request') }}">
             {{ __('Forgot your password?') }}
@@ -46,7 +46,7 @@
     @endif
 
     </div>
-    
+     --}}
     <x-primary-button id="inputButtonLogin">
         {{ __('Log in') }}
     </x-primary-button>

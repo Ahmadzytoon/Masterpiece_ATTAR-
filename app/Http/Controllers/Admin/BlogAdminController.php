@@ -71,7 +71,7 @@ class BlogAdminController extends Controller
       $data=Blog::findOrFail($id);
       return view('admin.blog.edit', ['data' =>$data]);
   
-      }
+    }
 
     /**
      * Update the specified resource in storage.
@@ -97,7 +97,6 @@ class BlogAdminController extends Controller
       $data->short_description = $request->short_description;
       $data->long_description = $request->long_description;
       $data->image = $photoName;
-  
       $data->save();
   
       return redirect()->route('admin.blog_Admin.index');
@@ -111,6 +110,9 @@ class BlogAdminController extends Controller
      */
     public function destroy($id)
     {
+
       Blog::findOrfail($id)->delete();
-      return redirect()->route('admin.blog_Admin.index');    }
+      return redirect()->route('admin.blog_Admin.index');
+
+    }
 }

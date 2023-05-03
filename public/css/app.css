@@ -679,16 +679,45 @@ transition: all 0.8s;
 } 
 /* __________________________ */
 .img-land{
-    background-image: url(https://www.foodtodayeg.com/Content/Upload/large/3202212145810618972301.jpg);
-    height: 45vh;
+    /* background-image: url(https://www.foodtodayeg.com/Content/Upload/large/3202212145810618972301.jpg); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.57), rgba(35, 35, 35, 0.529)),url(https://www.foodtodayeg.com/Content/Upload/large/3202212145810618972301.jpg);
+
+    height: 25vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
 
+
 }
+
+
+.section-land {
+    text-align: center;
+    margin: 60px 0 34px;
+    text-align: center;
+    margin: 60px 0 34px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-land h2 {
+    font-size: 37px;
+    color: rgb(173 255 145);
+}
+
+
+
+
+
+
+
+
 .blog {
     display: flex;
-    margin-bottom: 60px;
+    margin-bottom: 45px;
 }
 
 .blog-img,
@@ -1417,8 +1446,8 @@ font-size: 20px;
 }
 #cart-bottom .coupon h5,
 #cart-bottom .total h5{
-    background:  var(--green);;
-    color: white;
+  background: linear-gradient(#5d9604, #ddf705);
+  color: white;
     border: none;
     padding: 6px 12px;
     font-weight: 700;
@@ -1452,7 +1481,7 @@ font-size: 20px;
 
 }
 #cart-bottom .row button{
-    background: black;
+    background: rgb(198, 28, 28);
     color: white;
     padding: 12px 12px;
 }

@@ -68,18 +68,17 @@ Route::get('/', function () {
   Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountProduct'])->name('product.delete');
   Route::resource('/comment',CommentController::class);
   Route::resource('/order',OrderController::class);
-  Route::resource('/blog_Admin', BlogAdminController::class);
+  Route:: resource('/blog_Admin', BlogAdminController::class);
 
 });
+
   Route::get('/contactAdmin',[ContuctController::class,'createForm'])->name('contact.createForm')->middleware(['auth','verified','admin']);
   Route::get('/contactAdmin/destroy/{id}',[ContuctController::class, 'destroy'])->name('contact.destroy')->middleware(['auth','verified','admin']);
-
 
   // _______________user side____________________
 
 
   Route::prefix('user')->name('user.')->group(function () {
-
 
   Route::get('/', [PublicUserController::class, 'index'])->name('index');
   Route::resource('/signup', RegisterUserController::class);
@@ -89,11 +88,11 @@ Route::get('/', function () {
   Route::get('/cart',[CartUserController::class,'index'])->name('cart');
   Route::get('/cartdestroy/{id}',[CartUserController::class,'destroy'])->name('cart.destroy');
   Route::get('/addcart/{id}',[CartUserController::class,'addToCart'])->name('cart.add');
-  Route::resource('/PrivateOrder',PrivateOrderController::class);
+  // Route::resource('/PrivateOrder',PrivateOrderController::class);
   Route::resource('/contact', ContactUserController::class);
   Route::resource('/cartupdate', UpdateOrderController::class);
   Route::resource('/checkout', CheckoutController::class);
-  Route::resource('/profile', ProfileUserController::class);
+  Route::resource('/profile', ProfileUserController::class)->middleware(['auth', 'verified']);
   Route::resource('/single_product', SingleProductController::class);
   Route::resource('/comment_product', CommentProductController::class);
   Route::resource('/All_Product', AllProductController::class);

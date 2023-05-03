@@ -89,9 +89,13 @@
                       <button type="submit" class="button"><i class='bx bx-search-alt'></i></button>
                   </form>
                   <ul class="user-menu">
-                      <li><a href="#"><i class='bx bx-bell'></i></a></li>
-                      <li><a href="#"><i class='bx bx-user-circle'></i></a></li>
-                      <li><a href="{{Route('user.cart')}}"><i class='bx bx-cart'></i></a></li>
+                      {{-- <li><a href="#"><i class='bx bx-bell'></i></a></li> --}}
+                      @if (Auth::user())
+                      <li><a href={{route('user.profile.index')}}><span style="    color: #5d9604;
+                        font-size: 17px;"> مَرْحَبًا , {{Auth::user()->name}} </span><i class='bx bx-user-circle'></i></a></li>
+                      @endif
+                      <li><a href="{{Route('user.cart')}}"><i class='bx bx-cart'><span style="    color: #5d9604;
+                        font-size: 20px;">5</span></i></a></li>
                   </ul>
               </div>
           </div>
@@ -200,8 +204,8 @@
                           </div>
                       </li>
                       <!-- end mega menu -->
-                      <li><a href="{{route('user.PrivateOrder.index')}}">طلبك الخاص</a></li>
-                      <li><a href="{{route('user.blog.index')}}">مجلة عطارJO</a></li>
+                      {{-- <li><a href="{{route('user.PrivateOrder.index')}}">طلبك الخاص</a></li> --}}
+                      {{-- <li><a href="{{route('user.blog.index')}}">مجلة عطارJO</a></li> --}}
                       <li><a href={{route('user.contact.index')}}>تواصل معنا</a></li>
                   </ul>
               </div>

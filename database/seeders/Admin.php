@@ -24,10 +24,29 @@ class Admin extends Seeder
         'email' => 'admin@gmail.com',
         'phone' => '0799078807',
         'password' => bcrypt('123456789'),
-        'role' => "Admin"
+        'role' => "Admin",
+        'image' => "Admin.jpg"
 
         
-        ]);;
+        ],
+    
+      
+      
+      );;
+        User::create ([
+        
+        
+        'name' => 'Ahmad Zytoon',
+        'email' => 'Ahmad@gmail.com',
+        'phone' => '0796781246',
+        'password' => bcrypt('123456789'),
+        'role' => "user",
+        'image' => "Ahmad.jpeg"
+
+        
+        ]
+    
+      );;
      
     }
 }

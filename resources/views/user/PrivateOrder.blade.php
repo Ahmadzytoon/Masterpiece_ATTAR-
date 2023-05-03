@@ -77,11 +77,11 @@ select {
     {{-- ___________________________________________ --}}
 
       <div class="container1">
-          <button class="add_form_field">Add New Field &nbsp; 
+           <button class="add_form_field">Add New Field &nbsp; 
             <span style="font-size:16px; font-weight:bold;">+</span>
           </button>
 
-     <div class="divcon">
+        <div class="divcon">
           <select name="namepro" id="">  
             @foreach ($products as $item)
                 @if ($item->unit=="weight")

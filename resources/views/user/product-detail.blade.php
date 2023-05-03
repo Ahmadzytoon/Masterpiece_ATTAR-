@@ -166,12 +166,12 @@ Attarjo
                               <h2> العبوات المتوفرة</h2>
                              
                               <label class="container-check">125غرام
-                               <input type="radio" checked="checked" name="waight" value="125">
+                               <input type="radio"  name="waight" value="125">
                               <span class="checkmark"></span>
                               </label>
 
                               <label class="container-check">250غرام
-                              <input type="radio" name="waight" value="250">
+                              <input type="radio" checked="checked" name="waight" value="250">
                               <span class="checkmark"></span>
                               </label>
                               <label class="container-check">500غرام

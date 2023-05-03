@@ -36,7 +36,7 @@ class ProductController extends Controller
       ];
     }
 
-    return view('admin.product.show', ['data' => $data]);
+    return view('admin.product.show',['data'=> $data]);
 
 
   }

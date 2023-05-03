@@ -79,7 +79,7 @@ class PublicUserController extends Controller
                     $cart[$value->product_id] =[
 
 
-                      "name" => $value->product->namepro,
+                  "name" => $value->product->namepro,
                   "quantity" => $value->quantity,
                   "weight" => $value->weight,
 
