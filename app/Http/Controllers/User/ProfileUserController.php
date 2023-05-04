@@ -54,10 +54,15 @@ class ProfileUserController extends Controller
     public function show($id)
     {
       $data=order_details::where('user_id',$id)->get();
-      // dd($data);
+      $number_data=order_details::where('user_id',$id)->count();
+    
+      // dd($number_data);
       $categorynav = Category::all();
       $productsnav = Product::all();
-      return view('user.OrderProfile',['data'=>$data,'productsNav'=>$productsnav,'categoryNav'=>$categorynav]);
+      if ($number_data>0) {
+        return view('user.OrderProfile',['data'=>$data,'productsNav'=>$productsnav,'categoryNav'=>$categorynav]);
+      }
+      return redirect()->back()->with('failed', 'لا يوجد طلبات مسجلة');
 
     }
 

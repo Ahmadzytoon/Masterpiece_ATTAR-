@@ -82,7 +82,12 @@ min-height:65vh
 <th>مكان الأستلام</th>
 
 
-</thead>@foreach ($data as $item)
+</thead>
+
+{{-- {{dd($data)}} --}}
+
+@foreach ($data as $item)
+
 <tbody>
   
   {{-- <td>JD{{$item->order->total_price}}</td> --}}
@@ -99,10 +104,18 @@ min-height:65vh
   @endif
   <td>      المدينة : {{$item->order->city}}  ,  شارع {{$item->order->address}}  ,  {{$item->order->zipcode}} </td>
 </tbody>
-@endforeach
 
+@endforeach
   <th   style="text-align: center"> المجموع الكلي </th>
+
   <td   style="text-align: center ;color:red">{{$item->order->total_price}}JD</td>
+
+
+
+
+
+
+
 </table>
 
 

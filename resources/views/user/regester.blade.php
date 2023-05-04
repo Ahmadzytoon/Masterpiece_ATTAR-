@@ -137,7 +137,7 @@ Attarjo
             @error('phone')
             <div class="error">{{ $message }}</div>
           @enderror
-            <label for="">الايميل</label>
+            <label for="">البريد الالكتروني</label>
             <input type="email" placeholder="أدخل بريدك الالكتروني" name="email" value="{{ old('email')}}" class="@error('email') is-invalid @enderror">
             @error('email')
             <div class="error">{{ $message }}</div>

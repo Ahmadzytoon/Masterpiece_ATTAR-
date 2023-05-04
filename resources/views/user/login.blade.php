@@ -126,7 +126,7 @@ Attarjo
   <div class="container-login">
   <h2>تسجيل الدخول</h2>
   <form action="{{route('user.login.check')}}">
-      <label for="">الايميل</label>
+      <label for="">البريد الالكتروني</label>
       <input type="email" name="email" class="@error('email') is-invalid @enderror" value="{{ old('email')}}">
       @error('email')
         <div class="error">{{ $message }}</div>

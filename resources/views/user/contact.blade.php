@@ -94,7 +94,7 @@ margin: 2rem 0;
 text-align: center;
 padding: 2rem 0;
 display: grid;
-grid-template-columns: repeat(4 , 1fr);
+grid-template-columns: repeat(3 , 1fr);
 font-family: 'Open Sans', sans-serif;
 }
 .contact_info span {
@@ -244,7 +244,7 @@ font-size: 1.75rem;
 
           <div>
               <span><i class="fa-solid fa-at"></i></span>
-              <span>  ايميل </span>
+              <span>  البريد الألكتروني </span>
               <span class="text"> ATTAR JO@gmail.com</span>
           </div>
 
@@ -253,12 +253,12 @@ font-size: 1.75rem;
               <span> موقعنا </span>
               <span class="text"> الأردن </span>
           </div>
-
+{{-- 
           <div>
               <span><i class="fa-solid fa-calendar"></i></span>
               <span> Opening Hours</span>
               <span class="text">  <br></span>
-          </div>
+          </div> --}}
       </div>
 
 
@@ -270,7 +270,7 @@ font-size: 1.75rem;
           </div>
 
           <div>
-              <input type="email" class="form_control" name="email" id="email" placeholder="الايميل" required>
+              <input type="email" class="form_control" name="email" id="email" placeholder="البريد الالكتروني" required>
               <input type="text" class="form_control" name="phoneNumber" id="phoneNumber" placeholder="رقم الهاتف" required>
           </div>
           <input type="text" class="form_control" name="subject" id="subject" placeholder="الموضوع  "required>

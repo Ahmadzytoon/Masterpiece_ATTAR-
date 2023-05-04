@@ -56,7 +56,7 @@
                          رقم التواصل : <a href="#">9626781246+</a>
                       </li>
                       <li>
-                         ايميل : <a href="#">Attarjo@gmail.com</a>
+                         البريد الالكتروني: <a href="#">Attarjo@gmail.com</a>
                       </li>
           
                   </ul>

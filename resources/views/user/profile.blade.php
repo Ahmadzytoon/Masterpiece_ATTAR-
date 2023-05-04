@@ -57,6 +57,13 @@
                     {{ session()->get('success') }}
                 </div>
             @endif
+            @if(session()->get('failed'))
+                <div class="failed-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('failed') }}
+                </div>
+            @endif
 <div class="parent">
 <div class="wrapper">
   <div class="left">
