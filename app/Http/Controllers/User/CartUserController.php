@@ -97,7 +97,7 @@ class CartUserController extends Controller
     // if(!$course) {
     //     abort(404);
     // }
-
+// dd($request->quantity);
     $cart = session()->get('cart');
     // if cart is empty then this the first product
     if (!$cart) {
@@ -156,7 +156,7 @@ if (Auth()->user()) {
 
         ]);
       }
-      return redirect()->back()->with('success', 'Product added to cart successfully!');
+      return redirect()->back()->with('success', 'تمت اضافة المنتج الى السلة');
     }
 
 
@@ -165,8 +165,8 @@ if (Auth()->user()) {
     // if cart not empty then check if this product exist then increment quantity
     if (isset($cart[$id])) {
 
-      dd('dzdvdvvs');
-      return redirect()->back()->with('failed', 'Product added to cart successfully!');
+      // dd('dzdvdvvs');
+      return redirect()->back()->with('failed', 'المنتج موجود بالفعل بالسلة');
     }
     // if item not exist in cart then add to cart with quantity = 1
 
@@ -220,8 +220,8 @@ if (Auth()->user()) {
 
         ]);
       }
+      return redirect()->back()->with('success', 'تمت اضافة المنتج الى السلة');
 
-      return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
   }
 

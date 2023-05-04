@@ -4,7 +4,35 @@
    Attarjo
 @endsection
 @section('css')  
+<style>
 
+
+.failed-msg,
+  .info-msg,
+  .success-msg,
+  .warning-msg,
+  .error-msg {
+    margin: 10px 0;
+    padding: 9px;
+    border-radius: 3px 3px 3px 3px;
+    height: 47px;
+  }
+  
+  .success-msg {
+
+      color: #270;
+      background-color: #DFF2BF;
+      text-align: center;
+  
+  }
+  .failed-msg{
+font-size: 18px;
+      color: rgb(198, 53, 21);
+      background-color: #fda6a6;
+      text-align: center;
+  
+  }
+  </style>
 @endsection
 @section('script')
 
@@ -13,6 +41,20 @@
 
 {{--============= contant ===============--}}
 @section('contant')
+@if(session()->get('success'))
+                <div class="success-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+@if(session()->get('failed'))
+                <div class="failed-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('failed') }}
+                </div>
+            @endif
     <!-- hero section -->
     <div class="hero" >
       <div class="slider">
@@ -145,31 +187,6 @@
  @endforeach
 
 
-          {{-- <div class="swiper-slide box">
-              <img src="https://www.etaraonline.com/thumbs/400x400/photos/shares/2022/%D8%AA%D9%88%D8%A7%D8%A8%D9%84%20%D9%88%D8%A8%D9%87%D8%A7%D8%B1%D8%A7%D8%AA.jpg" alt="">
-              <h3 id="category">بهارات</h3>
-           
-          </div>
-          <div class="swiper-slide box">
-              <img src="https://www.etaraonline.com/thumbs/400x400/photos/shares/2022/herbs.jpg" alt="">
-              <h3 id="category">عطارة</h3>
-           
-          </div>
-          <div class="swiper-slide box">
-              <img src="https://www.etaraonline.com/thumbs/400x400/photos/shares/2022/test/20/asl3.jpg" alt="">
-              <h3 id="category">عسل</h3>
-           
-          </div>
-          <div class="swiper-slide box">
-              <img src="https://nakhlaty.com/wp-content/uploads/2019/11/%D8%AA%D8%B9%D8%B1%D9%81-%D8%B9%D9%84%D9%89-%D8%B3%D8%A8%D8%B9-%D8%AD%D9%82%D8%A7%D8%A6%D9%82-%D8%B9%D9%86-%D8%AA%D9%85%D9%88%D8%B1-%D8%A7%D9%84%D9%85%D8%AC%D8%AF%D9%88%D9%84-1000x630.png" alt="">
-              <h3 id="category">تمور</h3>
-           
-          </div>
-          <div class="swiper-slide box">
-              <img src="https://www.etaraonline.com/thumbs/400x400/photos/shares/2022/%D8%B2%D9%8A%D9%88%D8%AA%20%D8%B9%D8%B7%D8%B1%D9%8A%D8%A9.jpg" alt="">
-              <h3 id="category">زيوت طبيعية</h3> --}}
-           
-          {{-- </div> --}}
   
          
 
@@ -207,15 +224,16 @@
                       <div class="product-card-info">
                           <div class="product-btn">
                           <a href="{{route('user.single_product.show',$item->id)}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
-                              <a><form action={{route("user.cart.add",$item->id)}} method="post">
+                              <a>
+                                <form action={{route("user.cart.add",$item->id)}} method="post">
                                 @method('HEAD')
                                 @csrf
-                        <input type="hidden" name="quantity" value="1"/>
-                        @if($item->unit == "weight")
-                        <input type="hidden" name="waight" value="250" />
-                        @else
-                        <input type="hidden" name="waight" value="0" />
-                        @endif
+                                <input type="hidden" name="quantity" value="1"/>
+                                @if($item->unit == "weight")
+                                <input type="hidden" name="waight" value="250" />
+                                @else
+                                <input type="hidden" name="waight" value="0" />
+                                @endif
                                 <button class="btn-flat btn-hover btn-cart-add">
                                   <i class='bx bxs-cart-add'></i>
                                 </button>
@@ -298,12 +316,14 @@
           </div> --}}
           <div class="row" >
             {{-- _________________ --}}
-            <?php $i=0 ?>
+            <?php $i=0 ?> 
             @foreach ($products as $item)
-                      @if ($i<=3)
-                      @if($item->is_sale==1)
-              <div class="col-3 col-md-6 col-sm-12">
-                  
+            {{-- {{$item->is_sale}} --}}
+                    
+                      @if($item->is_sale==1) 
+                       @if ($i<=5)
+              <div class="col-2 col-md-6 col-sm-12">
+                {{-- {{dd($item->is_sale)}} --}}
                   <div class="product-card">
                       <div class="product-card-img">
                           <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
@@ -314,10 +334,20 @@
                       <div class="product-card-info">
                           <div class="product-btn">
                           <a href="{{route('user.single_product.show',$item->id)}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
-                              <a href="{{Route('user.cart.add',$item->id)}}">
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                  <i class='bx bxs-cart-add'></i>
-                                </button>
+                              <a >
+                                <form action={{route("user.cart.add",$item->id)}} method="post">
+                                  @method('HEAD')
+                                  @csrf
+                                  <input type="hidden" name="quantity" value="1"/>
+                                  @if($item->unit == "weight")
+                                  <input type="hidden" name="waight" value="250" />
+                                  @else
+                                  <input type="hidden" name="waight" value="0" />
+                                  @endif
+                                  <button class="btn-flat btn-hover btn-cart-add">
+                                    <i class='bx bxs-cart-add'></i>
+                                  </button>
+                                  </form>
                               </a>
                               {{-- <button class="btn-flat btn-hover btn-cart-add">
                                   <i class='bx bxs-heart'></i>
@@ -349,10 +379,11 @@
                           </div>
                       </div>
                   </div>
-              </div> 
+              </div>  
+               <?php $i++ ?>
               @endif
-              <?php ++$i ?>
               @endif
+            
                @endforeach
           </div>
           <div class="section-footer">

@@ -21,7 +21,9 @@ class PublicUserController extends Controller
         if(Auth()->user()){
 
             $user_id = Auth()->user()->id;
+          
             $cart = session()->get('cart');
+            // dd($cart);
             // بنخزن السشن في التيبل
             foreach ($cart as $key => $value ) {
               // تشييك المنتج اذا كان متواجد في الكارت او لا

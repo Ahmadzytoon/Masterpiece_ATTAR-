@@ -27,7 +27,11 @@ class AdminController extends Controller
       $number_of_category =Category::all()->count();
       $number_of_messages =Contact::all()->count();
       $number_of_Comment =Comment::all()->count();
+
+
       $Last_request_date =Order::all()->first();
+
+      
       $number_of_product =Product::all()->count();
       $number_of_orders =Order::all()->count();
       $number_of_Blog =Blog::all()->count();

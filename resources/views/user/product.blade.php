@@ -4,6 +4,35 @@
     منتجاتنا
 @endsection
 @section('css')
+<style>
+
+
+  .failed-msg,
+    .info-msg,
+    .success-msg,
+    .warning-msg,
+    .error-msg {
+      margin: 10px 0;
+      padding: 9px;
+      border-radius: 3px 3px 3px 3px;
+      height: 47px;
+    }
+    
+    .success-msg {
+  
+        color: #270;
+        background-color: #DFF2BF;
+        text-align: center;
+    
+    }
+    .failed-msg{
+  font-size: 18px;
+        color: rgb(198, 53, 21);
+        background-color: #fda6a6;
+        text-align: center;
+    
+    }
+    </style>
 @endsection
 @section('script')
     <script>
@@ -19,6 +48,20 @@
 
 {{-- ============= contant =============== --}}
 @section('contant')
+@if(session()->get('success'))
+                <div class="success-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+@if(session()->get('failed'))
+                <div class="failed-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('failed') }}
+                </div>
+            @endif
     <!-- products content -->
     <div class="bg-main">
         <div class="container">

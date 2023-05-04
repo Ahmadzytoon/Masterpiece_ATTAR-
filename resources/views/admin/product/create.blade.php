@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Price</label>
-                        <input type="number" name="price" class="form-control" id="" placeholder="">
+                        <input type="text" name="price" class="form-control" id="" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Short description</label>

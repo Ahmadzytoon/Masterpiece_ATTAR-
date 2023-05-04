@@ -46,56 +46,64 @@
           </div>
         </div> --}}
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0" style="height: 300px;">
+                <div class="card-body table-responsive p-0" style="height: 500px;">
                     <table class="table table-head-fixed text-nowrap">
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+
                                 <th>Name</th>
-                                <th>Short description</th>
-                                <th>Long description</th>
+
                                 <th>Category</th>
                                 <th>Image</th>
                                 <th>Unit</th>
                                 <th>Price</th>
-                              
-                            
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Short description</th>
+                                <th>Long description</th>
+
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $value)
                                 <tr>
                                     <td>{{ $value['id'] }}</td>
-
-                                    <td> {{ $value['namepro'] }}</td>
-                                    <td> {{ $value['short_description'] }}</td>
-                                    <td> {{ $value['long_description'] }} </td>
-                                    <td> {{ $value['name_category'] }}</td>
                                     <td>
-                                      <?php $imgg=$value['image']?>
-                                        <img src="{{ URL::asset('storage/image/'.$imgg) }}" alt=""
-                                            style="width: 75px ;height: 75px">
-                                    </td>
-                                    <td>{{ $value['unit'] }}</td>
-                                    <td>{{ $value['price'] }}</td>
-                                  
-                                  
-                                    <td>
-                                        <a href="{{Route('admin.products.edit',$value['id'])}}">
+                                        <a href="{{ Route('admin.products.edit', $value['id']) }}">
                                             <button type="button"
                                                 class="btn btn-block bg-gradient-success btn-sm">Edit</button>
                                         </a>
                                     </td>
                                     <td>
-                                        <form action="{{Route('admin.products.destroy',$value['id'])}}" method="post">
+                                        <form action="{{ Route('admin.products.destroy', $value['id']) }}" method="post">
                                             @method('delete')
                                             @csrf
                                             <button type="submit"
                                                 class="btn btn-block bg-gradient-danger btn-sm">Delete</button>
                                         </form>
                                     </td>
+
+                                    <td> {{ $value['namepro'] }}</td>
+                                    <td> {{ $value['name_category'] }}</td>
+                                    <td>
+                                        <?php $imgg = $value['image']; ?>
+                                        <img src="{{ URL::asset('storage/image/' . $imgg) }}" alt=""
+                                            style="width: 75px ;height: 75px">
+                                    </td>
+                                    <td>{{ $value['unit'] }}</td>
+                                    <td>{{ $value['price'] }}</td>
+
+
+                                    <td>
+                                        <p style="width:140px;overflow: auto;">{{ $value['short_description'] }}</p>
+                                    </td>
+                                    <td style="width:75px;voverflow: auto;">
+                                        <p style="width:140px;overflow: auto;">{{ $value['long_description'] }}</p>
+                                    </td>
+
+
 
                                 </tr>
                             @endforeach

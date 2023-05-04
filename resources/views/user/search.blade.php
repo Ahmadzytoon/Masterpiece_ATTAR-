@@ -5,7 +5,35 @@ Attarjo
 
 @endsection
 @section('css')  
+<style>
 
+
+  .failed-msg,
+    .info-msg,
+    .success-msg,
+    .warning-msg,
+    .error-msg {
+      margin: 10px 0;
+      padding: 9px;
+      border-radius: 3px 3px 3px 3px;
+      height: 47px;
+    }
+    
+    .success-msg {
+  
+        color: #270;
+        background-color: #DFF2BF;
+        text-align: center;
+    
+    }
+    .failed-msg{
+  font-size: 18px;
+        color: rgb(198, 53, 21);
+        background-color: #fda6a6;
+        text-align: center;
+    
+    }
+    </style>
 @endsection
 @section('script')
 
@@ -15,7 +43,20 @@ Attarjo
 {{--============= contant ===============--}}
 @section('contant')
 
+@if(session()->get('success'))
+                <div class="success-msg">
+                    <i class="fa fa-check"></i>
 
+                    {{ session()->get('success') }}
+                </div>
+            @endif
+@if(session()->get('failed'))
+                <div class="failed-msg">
+                    <i class="fa fa-check"></i>
+
+                    {{ session()->get('failed') }}
+                </div>
+            @endif
     <!-- products content -->
     <div class="bg-main">
       <div class="container">
@@ -81,10 +122,20 @@ Attarjo
                                     <div class="product-card-info">
                                         <div class="product-btn">
                                         <a href="{{route('user.single_product.show',$item['id'])}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
-                                            <a href="{{Route('user.cart.add',$item['id'])}}">
-                                              <button class="btn-flat btn-hover btn-cart-add">
-                                                <i class='bx bxs-cart-add'></i>
-                                              </button>
+                                            <a >
+                                              <form action={{route("user.cart.add",$item['id'])}} method="post">
+                                                @method('HEAD')
+                                                @csrf
+                                                <input type="hidden" name="quantity" value="1"/>
+                                                  @if($item['unit']== "weight")
+                                                <input type="hidden" name="waight" value="250" />
+                                                @else
+                                                <input type="hidden" name="waight" value="0" />
+                                                @endif
+                                                <button class="btn-flat btn-hover btn-cart-add">
+                                                  <i class='bx bxs-cart-add'></i>
+                                                </button>
+                                                </form>
                                             </a>
                                             {{-- <button class="btn-flat btn-hover btn-cart-add">
                                                 <i class='bx bxs-heart'></i>

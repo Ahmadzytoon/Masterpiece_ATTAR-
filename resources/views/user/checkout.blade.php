@@ -208,19 +208,17 @@ span.price {
       <h4>السلة
         <span class="price" style="color:black">
           <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
+          <b>{{count(session('cart'))}}</b>
         </span>
       </h4>
 
-
-      <p><a href="#">المنتج </a> <span class="price">10 دينار أردني</span></p>
-      <p><a href="#">المنتج </a> <span class="price">20 دينار أردني</span></p>
-      <p><a href="#">المنتج </a> <span class="price">13 دينار أردني</span></p>
-      <p><a href="#">المنتج </a> <span class="price">7 دينار أردني</span></p>
-      <p><a href="#">المنتج </a> <span class="price">10 دينار أردني</span></p>
+<?php   $cart = session()->get('cart'); ?>
+{{-- {{dd($cart)}} --}}
+      <p><a href="#">المجموع </a> <span class="price"> {{session('total_price')}}دينار اردني </span></p>
+      <p><a href="#">الضريبة </a> <span class="price">0.00 دينار أردني</span></p>
 
       <hr>
-      <p>المجموع <span class="price" style="color:black"><b> {{session('total_price')}}دينار اردني  </b></span></p>
+      <p>المجموع النهائي<span class="price" style="color:black"><b>{{session('total_price')}}دينار اردني  </b></span></p>
     </div>
   </div>
 </div>

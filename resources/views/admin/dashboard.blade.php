@@ -77,7 +77,13 @@ control panel
           <div class="col-lg-3 col-6">
           <div class="small-box bg-info">
             <div class="inner">
-              {{-- <h3>{{$Last_request_date->order_date}}</h3> --}}
+
+              @if ($Last_request_date)
+                  <h3>{{$Last_request_date->order_date}}</h3>
+          
+              @else
+              <h3>No Order</h3>
+              @endif
 
               <p> Last Order Date </p>
             </div>

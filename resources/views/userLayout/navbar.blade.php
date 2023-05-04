@@ -95,7 +95,9 @@
                         font-size: 17px;"> مَرْحَبًا , {{Auth::user()->name}} </span><i class='bx bx-user-circle'></i></a></li>
                       @endif
                       <li><a href="{{Route('user.cart')}}"><i class='bx bx-cart'><span style="    color: #5d9604;
-                        font-size: 20px;">5</span></i></a></li>
+                        font-size: 20px;">@if(session()->has('cart') && count(session('cart'))>0)
+                    {{count(session('cart'))}}
+                    @endif</span></i></a></li>
                   </ul>
               </div>
           </div>
@@ -111,9 +113,13 @@
                           <div class="mega-content">
                               <div class="row">
                                 <?php $j = 0 ?>
-                                <div class="col-2 col-md-12">
-                                  <div class="box">
-                                    <a href="{{route('user.All_Product.index')}}">  <h3 class="">جميع منتجاتنا</h3></a>
+                                <div class=" col-md-6" style="
+                                height: 50px;
+                            ">
+                                  <div class="box" style="padding:  15px">
+                                    <a href="{{route('user.All_Product.index')}}">  <h3 style="
+                                      width: 140px;
+                                  " class="">جميع منتجاتنا =></h3></a>
                                   </div>
                                 </div>
                                 
@@ -121,7 +127,7 @@
                                 @if ($j<=4)
                             
                                 <div class="col-2 col-md-12">
-                                  <div class="box">
+                                  <div class="box"  style="padding: 15px">
                                     <a href="{{route('user.All_Product.show',$value->id)}}">  <h3>{{$value->name_category}}</h3></a>
                                     
                                     <ul>

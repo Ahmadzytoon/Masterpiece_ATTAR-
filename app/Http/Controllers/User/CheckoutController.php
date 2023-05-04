@@ -116,21 +116,22 @@ class CheckoutController extends Controller
 
         ];
       }
-
+// dd($data);
 
     foreach($data as $value){
 
         if($value['is_sale']==1){
-            $price= $value['product_price'];
+              $price= $value['product_price_discount'];
         }else{
-            $price= $value['product_price_discount'];
+          
+            $price= $value['product_price'];
         }
         order_details::create([
 
             'order_id' => $last_order_id,
             'user_id' => $user_id,
             'product_id' => $value['product_id'],
-            'quantity' => $value['product_id'],
+            'quantity' => $value['quantity'],
             'weight' => $value['weight'],
             'price' =>$price,
 
@@ -146,7 +147,7 @@ class CheckoutController extends Controller
 
 
     // return redirect()->route('user.profile_user.index');
-    return redirect()->route('user.profile.index')->with('success','We thank you for your trust in our website. We hope that you will get the most out of this course. Sections of the course can be viewed from the main page of the course at any time you want.');
+    return redirect()->route('user.profile.index')->with('success','تمت عملية الشراء بالنجاح ,شكرا لثقتكم بنا');
 
     }
 
