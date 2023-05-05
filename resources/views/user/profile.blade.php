@@ -5,35 +5,7 @@
 @endsection
 @section('css')  
 <link rel="stylesheet"href="{{asset('./css/profile.css')}}">
-<style>
 
-
-  .failed-msg,
-    .info-msg,
-    .success-msg,
-    .warning-msg,
-    .error-msg {
-      margin: 10px 0;
-      padding: 9px;
-      border-radius: 3px 3px 3px 3px;
-      height: 47px;
-    }
-    
-    .success-msg {
-  
-        color: #270;
-        background-color: #DFF2BF;
-        text-align: center;
-        font-size: 18px;
-    }
-    .failed-msg{
-  font-size: 18px;
-        color: rgb(198, 53, 21);
-        background-color: #fda6a6;
-        text-align: center;
-    
-    }
-    </style>
 @endsection
 @section('script')
 

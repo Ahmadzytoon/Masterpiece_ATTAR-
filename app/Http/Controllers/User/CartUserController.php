@@ -37,23 +37,20 @@ class CartUserController extends Controller
       // dd($data);
       $category = Category::all();
       $productsnav = Product::all();
-      return view('user.cart',['data' => $data,'productsNav'=>$productsnav,'categoryNav'=>$category]);
-    } 
-    else {
+      return view('user.cart', ['data' => $data, 'productsNav' => $productsnav, 'categoryNav' => $category]);
+    } else {
       $cart = session()->get('cart');
       $array_id = [];
       if ($cart) {
 
-        // foreach ($cart as $key => $value) {
-        //   array_push($array_id, $key);
-        // }
+
         // dd($array_id);
         $data = [];
         foreach ($cart as $key => $value) {
-          $DATA = Product::where('id', $key )->get();
+          $DATA = Product::where('id', $key)->get();
           foreach ($DATA as $product) {
             $data[] = [
-              
+
               'product_id' => $product->id,
               'quantity' => $value['quantity'],
               'weight' => $value['weight'],
@@ -69,35 +66,30 @@ class CartUserController extends Controller
         // dd($data);
         $category = Category::all();
         $productsnav = Product::all();
-        return view('user.cart', ['data' => $data,'productsNav'=>$productsnav,'categoryNav'=>$category]);
+        return view('user.cart', ['data' => $data, 'productsNav' => $productsnav, 'categoryNav' => $category]);
       } else {
 
         $data = [];
         $category = Category::all();
         $productsnav = Product::all();
-        return view('user.cart', ['data' => $data,'productsNav'=>$productsnav,'categoryNav'=>$category]);
+        return view('user.cart', ['data' => $data, 'productsNav' => $productsnav, 'categoryNav' => $category]);
       }
     }
   }
   // _________________________________________________________
-  public function addToCart(Request $request ,$id)
+  public function addToCart(Request $request, $id)
   {
-// dd($id);
+    // dd($id);
 // dd($request->waight);
 // session()->forget('cart');
 // dd(session('cart'));
 // dd($id);
-    // session()->forget('cart');
-    // return redirect()->back();
-    $product = Product::find($id);
-
-
-    // $user_id = Auth()->user()->id;
-    // $course = Course::find($id);
-    // if(!$course) {
-    //     abort(404);
-    // }
+// session()->forget('cart');
+// return redirect()->back();
 // dd($request->quantity);
+
+
+    $product = Product::find($id);
     $cart = session()->get('cart');
     // if cart is empty then this the first product
     if (!$cart) {
@@ -110,13 +102,13 @@ class CartUserController extends Controller
         $weight = 0;
       }
       if ($product->is_sale == 1) {
-        
+
         $price = $product->price_discount;
       } else {
         $price = $product->price;
       }
       if ($product->unit == "weight") {
-        $price = ($price * $request->waight)/1000;
+        $price = ($price * $request->waight) / 1000;
       }
       $cart = [
         $id => [
@@ -127,16 +119,12 @@ class CartUserController extends Controller
         ]
       ];
 
-      
+
       session()->put('cart', $cart);
 
-// dd(session('cart'));
-// dd('ahmad');
+      // dd(session('cart'));
 
-
-
-
-if (Auth()->user()) {
+      if (Auth()->user()) {
 
         $user_id = Auth()->user()->id;
         if ($product->unit == "weight") {
@@ -165,7 +153,7 @@ if (Auth()->user()) {
     // if cart not empty then check if this product exist then increment quantity
     if (isset($cart[$id])) {
 
-      // dd('dzdvdvvs');
+      // dd('zzzzzzzzzzzzzzz');
       return redirect()->back()->with('failed', 'المنتج موجود بالفعل بالسلة');
     }
     // if item not exist in cart then add to cart with quantity = 1
@@ -174,8 +162,8 @@ if (Auth()->user()) {
 
     if ($cart) {
       if ($product->unit == "weight") {
-          $quantity = $request->quantity;
-          $weight = $request->waight;
+        $quantity = $request->quantity;
+        $weight = $request->waight;
       } else {
 
         $quantity = $request->quantity;
@@ -187,14 +175,14 @@ if (Auth()->user()) {
         $price = $product->price;
       }
       if ($product->unit == "weight") {
-        $price = ($price * $request->waight)/1000;
+        $price = ($price * $request->waight) / 1000;
       }
       $cart[$id] = [
         "name" => $product->namepro,
         "quantity" => $quantity,
         "price" => $price,
         "weight" => $weight,
-    
+
       ];
       session()->put('cart', $cart);
 
@@ -208,7 +196,7 @@ if (Auth()->user()) {
         } else {
 
           $quantity = $request->quantity;
-        $weight = 0;
+          $weight = 0;
         }
         Cart::create([
 

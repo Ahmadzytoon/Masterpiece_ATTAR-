@@ -44,7 +44,6 @@ class   ProductDiscountController extends Controller
             'discount_product' => ['required'],
         ]);
         $product_id = $request->select_product;
-        // $products = Product::where('id', $product_id)->get();
 
         $data = Product::findOrfail($product_id);
         $data->discount = $request->discount_product;
@@ -96,7 +95,6 @@ class   ProductDiscountController extends Controller
         ]);
 
         $product_id = $id;
-        // $products = Product::where('id', $product_id)->get();
 
         $data = Product::findOrfail($product_id);
         $data->discount = $request->discount_product;

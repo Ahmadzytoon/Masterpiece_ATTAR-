@@ -93,11 +93,15 @@
                       @if (Auth::user())
                       <li><a href={{route('user.profile.index')}}><span style="    color: #5d9604;
                         font-size: 17px;"> مَرْحَبًا , {{Auth::user()->name}} </span><i class='bx bx-user-circle'></i></a></li>
+                        @else
+                        <li><a href={{route('user.login')}}><i class='bx bx-user-circle'></i></a></li>
                       @endif
+
                       <li><a href="{{Route('user.cart')}}"><i class='bx bx-cart'><span style="    color: #5d9604;
                         font-size: 20px;">@if(session()->has('cart') && count(session('cart'))>0)
                     {{count(session('cart'))}}
                     @endif</span></i></a></li>
+
                   </ul>
               </div>
           </div>
@@ -136,10 +140,7 @@
                                       @if ($product->category_id==$value->id &&$i<=3)
                                       
                                       <li><i class='bx bxs-chevron-left text-green'></i><a href="{{route('user.single_product.show',$product->id)}}">{{$product->namepro}}</a></li>
-                                      {{-- <li><a href="#">بهارات مطحونة</a></li>
-                                      <li><a href="#">ماجي صحي</a></li>
-                                      <li><a href="#">بهارات مشكلة</a></li>
-                                      <li><a href="#">بهارات كبسة</a></li> --}}
+                                      
                     
                                       
                                       <?php ++$i ?>
@@ -151,39 +152,7 @@
                                 <?php ++$j ?>
                                       @endif
                                 @endforeach
-                                {{-- <div class="col-3 col-md-12">
-                                  <div class="box">
-                                          <h3> عطارة وأعشاب</h3>
-                                          <ul>
-                                              <li><a href="#">زعتر</a></li>
-                                              <li><a href="#">عسل</a></li>
-                                              <li><a href="#">مستكة</a></li>
-                                              <li><a href="#">لبان الذكر</a></li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col-3 col-md-12">
-                                      <div class="box">
-                                          <h3>تمور</h3>
-                                          <ul>
-                                              <li><a href="#">تمر مجهول</a></li>
-                                              <li><a href="#">تمر ربحي</a></li>
-                                              <li><a href="#">تمر برني</a></li>
-                                              <li><a href="#">تمر سكري</a></li>
-                                              <li><a href="#">تمر مجدول</a></li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                                  <div class="col-3 col-md-12">
-                                      <div class="box">
-                                          <h3>زيوت</h3>
-                                          <ul>
-                                              <li><a href="#">زيوت طبيعية</a></li>
-                                              <li><a href="#">زيوت عطرية</a></li>
-                                              <li><a href="#">خلطات زيوت</a></li>
-                                          </ul>
-                                      </div>
-                                  </div> --}}
+                              
                               </div>
                               <div class="row img-row">
                                   <div class="col-3">
@@ -210,8 +179,7 @@
                           </div>
                       </li>
                       <!-- end mega menu -->
-                      {{-- <li><a href="{{route('user.PrivateOrder.index')}}">طلبك الخاص</a></li> --}}
-                      {{-- <li><a href="{{route('user.blog.index')}}">مجلة عطارJO</a></li> --}}
+                    
                       <li><a href={{route('user.contact.index')}}>تواصل معنا</a></li>
                   </ul>
               </div>

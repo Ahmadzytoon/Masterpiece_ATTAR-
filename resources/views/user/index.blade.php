@@ -7,31 +7,7 @@
 <style>
 
 
-.failed-msg,
-  .info-msg,
-  .success-msg,
-  .warning-msg,
-  .error-msg {
-    margin: 10px 0;
-    padding: 9px;
-    border-radius: 3px 3px 3px 3px;
-    height: 47px;
-  }
-  
-  .success-msg {
 
-      color: #270;
-      background-color: #DFF2BF;
-      text-align: center;
-  
-  }
-  .failed-msg{
-font-size: 18px;
-      color: rgb(198, 53, 21);
-      background-color: #fda6a6;
-      text-align: center;
-  
-  }
   </style>
 @endsection
 @section('script')
@@ -41,6 +17,7 @@ font-size: 18px;
 
 {{--============= contant ===============--}}
 @section('contant')
+
 @if(session()->get('success'))
                 <div class="success-msg">
                     <i class="fa fa-check"></i>
@@ -54,7 +31,10 @@ font-size: 18px;
 
                     {{ session()->get('failed') }}
                 </div>
-            @endif
+@endif
+
+<!-- __________________________________________________hero____________________________________________________ -->
+
     <!-- hero section -->
     <div class="hero" >
       <div class="slider">
@@ -148,167 +128,160 @@ font-size: 18px;
       </div>
   </div>
   <!-- end hero section -->
-<!-- ______________________________________________________________________________________________________ -->
-  <!-- promotion section -->
-  <div class="promotion">
-      <div class="row promotion-new">
-          <div class="col-5 col-md-12 col-sm-12">
-              <div class="promotion-box">
-                  
-                  <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-1.png" alt="">
-              </div>
-          </div>
-          <div class="col-5 col-md-12 col-sm-12">
-              <div class="promotion-box">
-  
-                  <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-3.png" alt="">
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- end promotion section -->
-<!-- _____________________slider category________________________ -->
+<!-- ___________________________________________________endhero___________________________________________________ -->
 
 
+
+
+<!-- promotion section -->
+<div class="promotion">
+    <div class="row promotion-new">
+        <div class="col-5 col-md-12 col-sm-12">
+            <div class="promotion-box">
+                
+                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-1.png" alt="">
+            </div>
+        </div>
+        <div class="col-5 col-md-12 col-sm-12">
+            <div class="promotion-box">
+
+                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-3.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end promotion section -->
+
+
+
+<!-- slider category -->
 <div class="reviews" id="reviews">
   <div class="section-header">
     <h2>      ꧂   تسوق حسب الأقسام   ꧁   </h2>
-
-  
   </div>
   <div class="swiper reviews-slider">
       <div class="swiper-wrapper">
-
         @foreach ($category as $item)
-        <div class="swiper-slide box">
-          <a href="{{route('user.All_Product.show',$item->id)}}"><img src="{{URL::asset("storage/image/".$item->image)}}" alt=""></a>
-          <h3 id="category">{{$item->name_category}}</h3>
-      </div>
- @endforeach
-
-
-  
-         
-
+          <div class="swiper-slide box">
+            <a href="{{route('user.All_Product.show',$item->id)}}"><img src="{{URL::asset("storage/image/".$item->image)}}" alt=""></a>
+            <h3 id="category">{{$item->name_category}}</h3>
+          </div>
+        @endforeach
       </div>
   </div>
 </div>
+<!-- end slider category -->
+
+
+<!-- product list -->
+<div class="section">
+    <div class="container">
+        <div class="section-header">
+          <h2>      ꧂   منتجاتنا الأكثر مبيعا   ꧁   </h2>
+        </div>
+        {{-- id="latest-products" --}}
+        <div class="row" >
+          
+          <?php $j = 0 ?>
+                    @foreach ($products as $item)
+                    @if ($j<=5)
+            <div class="col-2 col-md-6 col-sm-12">
+                
+                <div class="product-card">
+                    <a href="{{route('user.single_product.show',$item['id'])}}"><div class="product-card-img">
+                      <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
+                        <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
+
+                  </div></a>
+
+                    <div class="product-card-info">
+                        <div class="product-btn">
+                        <a href="{{route('user.single_product.show',$item->id)}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
+                            <a>
+                              <form action={{route("user.cart.add",$item->id)}} method="post">
+                              @method('HEAD')
+                              @csrf
+                              <input type="hidden" name="quantity" value="1"/>
+                              @if($item->unit == "weight")
+                              <input type="hidden" name="waight" value="250" />
+                              @else
+                              <input type="hidden" name="waight" value="0" />
+                              @endif
+                              <button class="btn-flat btn-hover btn-cart-add">
+                                <i class='bx bxs-cart-add'></i>
+                              </button>
+                              </form>
+                            </a>
+                            {{-- <button class="btn-flat btn-hover btn-cart-add">
+                                <i class='bx bxs-heart'></i>
+                            </button> --}}
+                        </div>
+                        <div class="product-card-name">
+                  {{ $item->namepro }}   @if($item->unit == "weight")
+                  /250غرام
+                  @endif        
+                </div>
+                        <span class="rating">
+                    
+                        
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                            <i class='bx bxs-star'></i>
+                        </span>
+                        <div class="product-card-price">
+
+                          @if($item->is_sale==1)
+                                      @if($item->unit == "weight")
+                                        <span><del>JD  {{ ($item->price*250)/1000  }}</del></span>
+                                        <span class="curr-price">JD {{ ($item->price_discount*250)/1000  }}</span>
+                                        @else
+                                        <span><del>JD  {{ $item->price  }}</del></span>
+                                        <span class="curr-price">JD {{ $item->price_discount}}</span>
+                                      @endif
 
 
 
+                          @else
+
+                                            @if($item->unit == "weight")
+                                            <span class="curr-price">JD {{ ($item->price*250)/1000  }}</span>
+                                            @else
+                                            <span class="curr-price">JD {{ $item->price }}</span>
+                                          @endif
 
 
-<!-- _________________   end   slider category________________________ -->
 
-  <!-- product list -->
-  <div class="section">
-      <div class="container">
-          <div class="section-header">
-            <h2>      ꧂   منتجاتنا الأكثر مبيعا   ꧁   </h2>
-          </div>
-          {{-- id="latest-products" --}}
-          <div class="row" >
-            {{-- _________________ --}}
-            <?php $j = 0 ?>
-                      @foreach ($products as $item)
-                      @if ($j<=5)
-              <div class="col-2 col-md-6 col-sm-12">
-                  
-                  <div class="product-card">
-                      <a href="{{route('user.single_product.show',$item['id'])}}"><div class="product-card-img">
-                       <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
-                          <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
-  
-                    </div></a>
-
-                      <div class="product-card-info">
-                          <div class="product-btn">
-                          <a href="{{route('user.single_product.show',$item->id)}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
-                              <a>
-                                <form action={{route("user.cart.add",$item->id)}} method="post">
-                                @method('HEAD')
-                                @csrf
-                                <input type="hidden" name="quantity" value="1"/>
-                                @if($item->unit == "weight")
-                                <input type="hidden" name="waight" value="250" />
-                                @else
-                                <input type="hidden" name="waight" value="0" />
-                                @endif
-                                <button class="btn-flat btn-hover btn-cart-add">
-                                  <i class='bx bxs-cart-add'></i>
-                                </button>
-                                </form>
-                              </a>
-                              {{-- <button class="btn-flat btn-hover btn-cart-add">
-                                  <i class='bx bxs-heart'></i>
-                              </button> --}}
-                          </div>
-                          <div class="product-card-name">
-                    {{ $item->namepro }}   @if($item->unit == "weight")
-                    /250غرام
-                    @endif        
-                  </div>
-                          <span class="rating">
-                      
                           
-                              <i class='bx bxs-star'></i>
-                              <i class='bx bxs-star'></i>
-                              <i class='bx bxs-star'></i>
-                              <i class='bx bxs-star'></i>
-                              <i class='bx bxs-star'></i>
-                          </span>
-                          <div class="product-card-price">
 
-                            @if($item->is_sale==1)
-                                        @if($item->unit == "weight")
-                                          <span><del>JD  {{ ($item->price*250)/1000  }}</del></span>
-                                          <span class="curr-price">JD {{ ($item->price_discount*250)/1000  }}</span>
-                                          @else
-                                          <span><del>JD  {{ $item->price  }}</del></span>
-                                          <span class="curr-price">JD {{ $item->price_discount}}</span>
-                                        @endif
+                          @endif
 
-
-
-                            @else
-
-                                              @if($item->unit == "weight")
-                                              <span class="curr-price">JD {{ ($item->price*250)/1000  }}</span>
-                                              @else
-                                              <span class="curr-price">JD {{ $item->price }}</span>
-                                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <?php ++$j ?>
+            @endif
+              @endforeach
+        </div>
+        <div class="section-footer">
+            <a href="{{route('user.All_Product.index')}}" class="btn-flat btn-hover">عرض المزيد</a>
+        </div>
+    </div>
+</div>  
+<!-- end product list -->
 
 
 
-                            
 
-                            @endif
-
-                          </div>
-                      </div>
-                  </div>
-              </div> 
-              <?php ++$j ?>
-              @endif
-               @endforeach
-          </div>
-          <div class="section-footer">
-              <a href="{{route('user.All_Product.index')}}" class="btn-flat btn-hover">عرض المزيد</a>
-          </div>
-      </div>
-  </div>  
-
-  <!-- end product list -->
-<!-- _______________________________________________________________________ -->
-  <!-- special product -->
+<!-- special product -->
   <div class="img-land">
     <div class="section-land">
       <h2>      ꧂  أفضل  العروض  ꧁   </h2>
   </div>
   </div>
-  <!-- end special product -->
 
-  <!-- product list -->
   <div class="section">
       <div class="container">
           {{-- <div class="section-header">
@@ -321,7 +294,7 @@ font-size: 18px;
             {{-- {{$item->is_sale}} --}}
                     
                       @if($item->is_sale==1) 
-                       @if ($i<=5)
+                      @if ($i<=5)
               <div class="col-2 col-md-6 col-sm-12">
                 {{-- {{dd($item->is_sale)}} --}}
                   <div class="product-card">
@@ -380,11 +353,11 @@ font-size: 18px;
                       </div>
                   </div>
               </div>  
-               <?php $i++ ?>
+              <?php $i++ ?>
               @endif
               @endif
             
-               @endforeach
+              @endforeach
           </div>
           <div class="section-footer">
               <a href="{{route('user.All_Product.create')}}" class="btn-flat btn-hover">عرض المزيد</a>
@@ -392,62 +365,63 @@ font-size: 18px;
       </div>
   </div>  
 
+<!-- end special product -->
 
-  <!-- end product list -->
-<!-- _____________________________________________- -->
-  <!-- blogs -->
-  <div class="section">
-      <div class="container">
-          <div class="section-header">
-            <h2>       ꧂   مجلة ꧁   ATTAR JO     </h2>
 
+<!-- blogs -->
+<div class="section">
+    <div class="container">
+        <div class="section-header">
+          <h2>       ꧂   مجلة ꧁   ATTAR JO     </h2>
+
+          
+        </div>
+        <?php $i = 1?>
+        @foreach ($data as $item)
             
-          </div>
-          <?php $i = 1?>
-          @foreach ($data as $item)
-              
-        @if($i%2!=0)
-          <div class="blog">
-              <div class="blog-img">
-                <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
-
-              </div>
-              <div class="blog-info">
-                  <div class="blog-title">
-                   <h2> {{$item->title}}</h2> 
-
-                  </div>
-                  <div class="blog-preview">
-                    {{$item->short_description}}                 </div>
-                    {{-- <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a> --}}
-                  </div>
-          </div>
-
-          @else
-          <div class="blog row-revere">
+      @if($i%2!=0)
+        <div class="blog">
             <div class="blog-img">
-                <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+
             </div>
             <div class="blog-info">
                 <div class="blog-title">
-                    <h2> {{$item->title}}</h2> 
-                   
+                  <h2> {{$item->title}}</h2> 
+
                 </div>
                 <div class="blog-preview">
-                  {{$item->short_description}}                 
+                  {{$item->short_description}}              
+                    </div>
                   {{-- <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a> --}}
                 </div>
         </div>
-        </div>
-        @endif
-        <?php ++$i?>
-          @endforeach
-        
-          <div class="section-footer">
-            <a href="{{route('user.blog.index')}}" class="btn-flat btn-hover">للمزيد</a>
+
+        @else
+        <div class="blog row-revere">
+          <div class="blog-img">
+              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
           </div>
+          <div class="blog-info">
+              <div class="blog-title">
+                  <h2> {{$item->title}}</h2> 
+                  
+              </div>
+              <div class="blog-preview">
+                {{$item->short_description}}                 
+                {{-- <a href="{{route('user.blog.show',$item->id)}}" class="btn-flat btn-hover">اقرأ المزيد</a> --}}
+              </div>
       </div>
-  </div>
-  <!-- end blogs -->
+      </div>
+      @endif
+      <?php ++$i?>
+        @endforeach
+      
+        <div class="section-footer">
+          <a href="{{route('user.blog.index')}}" class="btn-flat btn-hover">للمزيد</a>
+        </div>
+    </div>
+</div>
+<!-- end blogs -->
 @endsection
   

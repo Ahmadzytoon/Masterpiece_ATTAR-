@@ -4,59 +4,9 @@
 Attarjo
 @endsection
 @section('css')  
-<style>
-  input[type=number] {
-    /*for absolutely positioning spinners*/
-    position: relative; 
-    padding: 5px;
-    padding-right: 25px;
-    border-radius: 11px;
-  }
-
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    opacity: 1;
-  }
-
-  input[type=number]::-webkit-outer-spin-button, 
-  input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: inner-spin-button !important;
-    width: 25px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-  }
-</style>
-<style>
+<link rel="stylesheet" href="{{asset('./css/product-detail.css')}}">
 
 
-  .failed-msg,
-    .info-msg,
-    .success-msg,
-    .warning-msg,
-    .error-msg {
-      margin: 10px 0;
-      padding: 9px;
-      border-radius: 3px 3px 3px 3px;
-      height: 47px;
-    }
-    
-    .success-msg {
-  
-        color: #270;
-        background-color: #DFF2BF;
-        text-align: center;
-    
-    }
-    .failed-msg{
-  font-size: 18px;
-        color: rgb(198, 53, 21);
-        background-color: #fda6a6;
-        text-align: center;
-    
-    }
-    </style>
 @endsection
 @section('script')
 
@@ -203,10 +153,11 @@ Attarjo
                           <h3 class="product-info-detail-title"> الكمية :   </h3>
                           <input  type="number" name="quantity" value="1" min="1" max="10" />
                       </div>
-                             <div>
-                              @if($product->unit=="weight")
-                              <h2> العبوات المتوفرة</h2>
+                        <h2 style="font-size: 30px"> العبوات المتوفرة</h2>
                              
+                             <div class="container-divweight">
+                              @if($product->unit=="weight")
+                            
                               <label class="container-check">125غرام
                                <input type="radio"  name="waight" value="125">
                               <span class="checkmark"></span>
@@ -271,66 +222,7 @@ Attarjo
                       <div class="user-rate-content">{{$comment->comment}}</div>
                   </div>
                   @endforeach
-                  {{-- <div class="user-rate">
-                      <div class="user-info">
-                          <div class="user-avt">
-                              <img src="./images/tuat.jpg" alt="">
-                          </div>
-                          <div class="user-name">
-                              <span class="name">محمد النقيطي</span>
-                              <span class="date">1-1-2023</span>
-                              <span class="rating">
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                              </span>
-                          </div>
-                      </div>
-                      <div class="user-rate-content">احسن من هيك مافي
-                      </div>
-                  </div>
-                  <div class="user-rate">
-                      <div class="user-info">
-                          <div class="user-avt">
-                              <img src="./images/tuat.jpg" alt="">
-                          </div>
-                          <div class="user-name">
-                              <span class="name">عبد المجيد الخليلي</span>
-                              <span class="date">1-1-2023</span>
-                              <span class="rating">
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                              </span>
-                          </div>
-                      </div>
-                      <div class="user-rate-content">جايلك ياجبان
-                      </div>
-                  </div>
-                  <div class="user-rate">
-                      <div class="user-info">
-                          <div class="user-avt">
-                              <img src="./images/tuat.jpg" alt="">
-                          </div>
-                          <div class="user-name">
-                              <span class="name">عمروووو</span>
-                              <span class="date">1-1-2023</span>
-                              <span class="rating">
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                                  <i class='bx bxs-star'></i>
-                              </span>
-                          </div>
-                      </div>
-                      <div class="user-rate-content">هبره هبره
-                      </div>
-                  </div> --}}
+
                   
                   <div class="box">
                       <ul class="pagination">

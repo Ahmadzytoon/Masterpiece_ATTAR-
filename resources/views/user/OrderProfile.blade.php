@@ -5,53 +5,7 @@ Attarjo
 
 @endsection
 @section('css')  
-<style>
-  #customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  #customers td, #customers th {
-    /* border: 1px solid #ddd; */
-    padding: 8px;
-    text-align: center
-  }
-  
-  #customers tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #customers tr:hover {background-color: #ddd;}
-  
-  #customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background: linear-gradient(#5d9604,#ddf705);
-    color: white;
-    text-align: center
-    
-  }
-  .order{
-padding: 50px;
-width:90% ;
-margin: 0 auto;
-min-height:65vh 
-/* height: ; */
-  }
-  @media only screen and (max-width: 600px) {
-    #customers td, #customers th {
-    /* border: 1px solid #ddd; */
-    padding: 3px;
-    font-size: 11px;
-    text-align: center
-}
-.order {
-    padding: 9px;
-    /* width: 90%; */
-    margin: 0 auto;
-    height: 65vh;
-}
-}
-  </style>
+<link rel="stylesheet" href="{{asset('./css/OrderProfile.css')}}">
 @endsection
 @section('script')
 

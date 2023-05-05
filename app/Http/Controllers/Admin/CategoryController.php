@@ -76,9 +76,7 @@ class CategoryController extends Controller
    */
   public function edit($id)
   {
-    // if (count(Category::all()) < $id || $id < 0) {
-    //   return redirect()->back();
-    // }
+  
     return view('admin.category.edit', ['data' => Category::findOrFail($id)]);
   }
 

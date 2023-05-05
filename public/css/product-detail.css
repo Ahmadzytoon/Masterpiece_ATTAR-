@@ -1,0 +1,56 @@
+input[type=number] {
+    /*for absolutely positioning spinners*/
+    position: relative; 
+    padding: 5px;
+    padding-right: 25px;
+    border-radius: 11px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+
+  input[type=number]::-webkit-outer-spin-button, 
+  input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    width: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+  }
+
+
+
+  .failed-msg,
+    .info-msg,
+    .success-msg,
+    .warning-msg,
+    .error-msg {
+      margin: 10px 0;
+      padding: 9px;
+      border-radius: 3px 3px 3px 3px;
+      height: 47px;
+    }
+    
+    .success-msg {
+  
+        color: #270;
+        background-color: #DFF2BF;
+        text-align: center;
+    
+    }
+    .failed-msg{
+  font-size: 18px;
+        color: rgb(198, 53, 21);
+        background-color: #fda6a6;
+        text-align: center;
+    
+    }
+    .container-divweight {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
