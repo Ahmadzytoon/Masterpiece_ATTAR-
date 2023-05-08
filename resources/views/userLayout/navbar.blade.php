@@ -82,12 +82,15 @@
           <!-- mid header -->
           <div class="bg-main">
               <div class="mid-header container">
-                  <a href={{route('user.index')}} class="logo"><img src="{{URL::asset("images/logocopy.png")}}" alt="" width="195px" height="63px" ></a>
-                  <form class="search" action="{{ route('user.search') }}" method="post">
+                <a href={{route('user.index')}} class="logo"><img src="{{URL::asset("images/logocopy.png")}}" alt="" width="195px" height="63px" ></a>
+                <!-- search -->
+                <form class="search" action="{{ route('user.search') }}" method="post">
                     @csrf  
                     <input type="text" name="search" placeholder="بحث ">
                       <button type="submit" class="button"><i class='bx bx-search-alt'></i></button>
                   </form>
+                  <!-- search -->
+                  
                   <ul class="user-menu">
                       {{-- <li><a href="#"><i class='bx bx-bell'></i></a></li> --}}
                       @if (Auth::user())
@@ -101,7 +104,6 @@
                         font-size: 20px;">@if(session()->has('cart') && count(session('cart'))>0)
                     {{count(session('cart'))}}
                     @endif</span></i></a></li>
-
                   </ul>
               </div>
           </div>

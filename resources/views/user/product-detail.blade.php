@@ -45,7 +45,7 @@ Attarjo
           <div class="row product-row">
               <div class="col-5 col-md-12">
                   <div class="product-img" id="product-img">
-                      <img src="{{URL::asset("storage/image/".$product->image)}}" alt="">
+                      <img src="{{URL::asset("storage/image/".$product->image)}}" alt="{{$product->namepro}}">
                   </div>
                   <!-- <div class="box">
                       <div class="product-img-list">
@@ -204,7 +204,7 @@ Attarjo
                   <div class="user-rate">
                       <div class="user-info">
                           <div class="user-avt">
-                              <img src="{{URL::asset("storage/image/".$comment->user->image)}}" alt="">
+                              <img src="{{URL::asset("storage/image/".$comment->user->image)}}" alt="ATTAR JO">
                           </div>
                           <div class="user-name">
                               <span class="name">{{$comment->user->name}}</span>

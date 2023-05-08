@@ -92,9 +92,9 @@
                                             <a href="{{ route('user.single_product.show', $item['id']) }}">
                                                 <div class="product-card-img">
                                                     <img src="{{ URL::asset('storage/image/' . $item['image']) }}"
-                                                        alt="">
+                                                        alt="ATTAR JO">
                                                     <img src="{{ URL::asset('storage/image/' . $item['image']) }}"
-                                                        alt="">
+                                                        alt="ATTAR JO">
 
                                                 </div>
                                             </a>

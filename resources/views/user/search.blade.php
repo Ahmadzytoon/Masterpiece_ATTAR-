@@ -86,8 +86,8 @@ Attarjo
                                 
                                 <div class="product-card">
                                     <a href="{{route('user.single_product.show',$item['id'])}}"><div class="product-card-img">
-                       <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
-                          <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
+                       <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="  {{ $item['namepro']}} ">
+                          <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="  {{ $item['namepro']}} ">
   
                     </div></a>
               
@@ -95,9 +95,10 @@ Attarjo
                                         <div class="product-btn">
                                         <a href="{{route('user.single_product.show',$item['id'])}}">   <button class="btn-flat btn-hover btn-shop-now">تفاصيل</button></a> 
                                             <a >
-                                              <form action={{route("user.cart.add",$item['id'])}} method="post">
-                                                @method('HEAD')
+                                              <form action={{route("user.cart.add",$item['id'])}} method="POST">
+                                              @method('HEAD')
                                                 @csrf
+                                                  
                                                 <input type="hidden" name="quantity" value="1"/>
                                                   @if($item['unit']== "weight")
                                                 <input type="hidden" name="waight" value="250" />
@@ -173,6 +174,8 @@ Attarjo
               
                                         </div>
                                     </div>
+
+
                                 </div>
                             </div> 
                              @endforeach

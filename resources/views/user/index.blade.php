@@ -60,7 +60,7 @@
                       </div>
                   </div>
                   <div class="img top-down">
-                      <!-- <img src="https://www.pngmart.com/files/3/Herbs-PNG-Transparent-Image.png" alt=""> -->
+                      <!-- <img src="https://www.pngmart.com/files/3/Herbs-PNG-Transparent-Image.png" alt="ATTAR JO"> -->
                   </div>
               </div>
               <!-- end slide item -->
@@ -87,7 +87,7 @@
                       </div>
                   </div>
                   <div class="img right-left">
-                      <img id="img-slid" src="https://www.seekpng.com/png/detail/948-9486302_mannil-chinese-herbs-png.png" alt="">
+                      <img id="img-slid" src="https://www.seekpng.com/png/detail/948-9486302_mannil-chinese-herbs-png.png" alt="ATTAR JO">
                   </div>
               </div>
               <!-- end slide item -->
@@ -112,7 +112,7 @@
                       </div>
                   </div>
                   <div class="img left-right">
-                      <img id="img-slid" src="https://ghanemtech.fra1.digitaloceanspaces.com/dlwaqty/179996/5a7d25b0e219b9db0d0482e8b642a378a0aa5ef2.jpg" alt="">
+                      <img id="img-slid" src="https://ghanemtech.fra1.digitaloceanspaces.com/dlwaqty/179996/5a7d25b0e219b9db0d0482e8b642a378a0aa5ef2.jpg" alt="ATTAR JO">
                   </div>
               </div>
               <!-- end slide item -->
@@ -139,13 +139,13 @@
         <div class="col-5 col-md-12 col-sm-12">
             <div class="promotion-box">
                 
-                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-1.png" alt="">
+                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-1.png" alt="ATTAR JO">
             </div>
         </div>
         <div class="col-5 col-md-12 col-sm-12">
             <div class="promotion-box">
 
-                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-3.png" alt="">
+                <img src="https://atarh.com/wp-content/uploads/2022/06/%D8%A8%D9%86%D8%B1-%D8%B5%D8%BA%D9%8A%D8%B1-3.png" alt="ATTAR JO">
             </div>
         </div>
     </div>
@@ -163,7 +163,7 @@
       <div class="swiper-wrapper">
         @foreach ($category as $item)
           <div class="swiper-slide box">
-            <a href="{{route('user.All_Product.show',$item->id)}}"><img src="{{URL::asset("storage/image/".$item->image)}}" alt=""></a>
+            <a href="{{route('user.All_Product.show',$item->id)}}"><img src="{{URL::asset("storage/image/".$item->image)}}" alt="{{$item->name_category}}"></a>
             <h3 id="category">{{$item->name_category}}</h3>
           </div>
         @endforeach
@@ -189,8 +189,8 @@
                 
                 <div class="product-card">
                     <a href="{{route('user.single_product.show',$item['id'])}}"><div class="product-card-img">
-                      <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
-                        <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="">
+                      <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="ATTAR JO">
+                        <img src="{{URL::asset("storage/image/".$item['image'])}}" alt="ATTAR JO">
 
                   </div></a>
 
@@ -299,8 +299,8 @@
                 {{-- {{dd($item->is_sale)}} --}}
                   <div class="product-card">
                       <div class="product-card-img">
-                          <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
-                          <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+                          <img src="{{URL::asset("storage/image/".$item->image)}}" alt="ATTAR JO">
+                          <img src="{{URL::asset("storage/image/".$item->image)}}" alt="ATTAR JO">
 
                     </div>
 
@@ -382,7 +382,7 @@
       @if($i%2!=0)
         <div class="blog">
             <div class="blog-img">
-              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="ATTAR JO">
 
             </div>
             <div class="blog-info">
@@ -400,7 +400,7 @@
         @else
         <div class="blog row-revere">
           <div class="blog-img">
-              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="">
+              <img src="{{URL::asset("storage/image/".$item->image)}}" alt="ATTAR JO">
           </div>
           <div class="blog-info">
               <div class="blog-title">

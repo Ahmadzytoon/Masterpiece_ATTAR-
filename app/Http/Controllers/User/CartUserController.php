@@ -208,6 +208,8 @@ class CartUserController extends Controller
 
         ]);
       }
+      // return view('user.index')->with('success', 'تمت اضافة المنتج الى السلة');
+
       return redirect()->back()->with('success', 'تمت اضافة المنتج الى السلة');
 
     }
@@ -234,6 +236,7 @@ class CartUserController extends Controller
         Cart::where('product_id', $id)->where('user_id', $user_id)->delete();
       }
       return redirect()->back();
+
       // session()->flash('success', 'Product removed successfully');
     }
   }

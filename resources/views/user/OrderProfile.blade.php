@@ -45,7 +45,7 @@ Attarjo
 <tbody>
   
   {{-- <td>JD{{$item->order->total_price}}</td> --}}
-  <td><img src="{{URL::asset("storage/image/".$item->product->image)}}" alt="" style="width: 75px ;    height: 75px"></td>
+  <td><img src="{{URL::asset("storage/image/".$item->product->image)}}" alt="{{$item->product->namepro}}" style="width: 75px ;    height: 75px"></td>
   <td>{{$item->product->namepro}}</td>
 
   <td>{{$item->product->price}} JD </td>

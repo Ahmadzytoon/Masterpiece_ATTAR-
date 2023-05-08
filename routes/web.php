@@ -54,21 +54,21 @@ Route::get('/', function () {
 // });
 
   Route::middleware(['auth', 'verified', 'admin'])->name('admin.')->prefix('admin')->group(function () {
-  Route::get('/', [AdminController::class, 'index'])->name('index');
-  Route::resource('/category', CategoryController::class);
-  Route::resource('/products', ProductController::class);
-  Route::resource('/addadmin', AdminController::class);
-  Route::resource('/editprofile',AdminController::class);
-  Route::resource('/updateprofile',AdminController::class);
-  Route::resource('/users',UserController::class);
-  Route::resource('/category_discount',CategoryDiscountController::class);
-  Route::resource('/product_discount',ProductDiscountController::class);
-  Route::get('/discount',[DiscountController::class,'index'])->name('discount');
-  Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
-  Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountProduct'])->name('product.delete');
-  Route::resource('/comment',CommentController::class);
-  Route::resource('/order',OrderController::class);
-  Route:: resource('/blog_Admin', BlogAdminController::class);
+      Route::get('/', [AdminController::class, 'index'])->name('index');
+      Route::resource('/category', CategoryController::class);
+      Route::resource('/products', ProductController::class);
+      Route::resource('/addadmin', AdminController::class);
+      Route::resource('/editprofile',AdminController::class);
+      Route::resource('/updateprofile',AdminController::class);
+      Route::resource('/users',UserController::class);
+      Route::resource('/category_discount',CategoryDiscountController::class);
+      Route::resource('/product_discount',ProductDiscountController::class);
+      Route::get('/discount',[DiscountController::class,'index'])->name('discount');
+      Route::get('/discount/create',[DiscountController::class,'addDiscount'])->name('discount.create');
+      Route::get('/discount/delete',[DeleteDiscountController::class,'deleteDiscountProduct'])->name('product.delete');
+      Route::resource('/comment',CommentController::class);
+      Route::resource('/order',OrderController::class);
+      Route:: resource('/blog_Admin', BlogAdminController::class);
 
 });
 
@@ -78,32 +78,34 @@ Route::get('/', function () {
   // _______________user side____________________
 
 
-  Route::prefix('user')->name('user.')->group(function () {
+    Route::prefix('user')->name('user.')->group(function () {
 
-  Route::get('/', [PublicUserController::class, 'index'])->name('index');
-  Route::resource('/signup', RegisterUserController::class);
-  Route::get('/login', [LoginUserController::class, 'index'])->name('login');
-  Route::get('/login/check', [LoginUserController::class, 'LoginPost'])->name('login.check');
-  Route::get('/login/destroy', [LoginUserController::class, 'destroy'])->name('login.destroy');
-  Route::get('/cart',[CartUserController::class,'index'])->name('cart');
-  Route::get('/cartdestroy/{id}',[CartUserController::class,'destroy'])->name('cart.destroy');
-  Route::get('/addcart/{id}',[CartUserController::class,'addToCart'])->name('cart.add');
-  // Route::resource('/PrivateOrder',PrivateOrderController::class);
-  Route::resource('/contact', ContactUserController::class);
-  Route::resource('/cartupdate', UpdateOrderController::class);
-  Route::resource('/checkout', CheckoutController::class);
-  Route::resource('/profile', ProfileUserController::class)->middleware(['auth', 'verified']);
-  Route::resource('/single_product', SingleProductController::class);
-  Route::resource('/comment_product', CommentProductController::class);
-  Route::resource('/All_Product', AllProductController::class);
-  Route::post('/search' , [SearchController::class , 'search'])->name('search');
-  Route::resource('/blog', BlogController::class);
-});
+        Route::get('/', [PublicUserController::class, 'index'])->name('index');
+        Route::resource('/signup', RegisterUserController::class);
+        Route::get('/login', [LoginUserController::class, 'index'])->name('login');
+        Route::get('/login/check', [LoginUserController::class, 'LoginPost'])->name('login.check');
+        Route::get('/login/destroy', [LoginUserController::class, 'destroy'])->name('login.destroy');
+        Route::get('/cart',[CartUserController::class,'index'])->name('cart');
+        Route::get('/cartdestroy/{id}',[CartUserController::class,'destroy'])->name('cart.destroy');
+        Route::get('/addcart/{id}',[CartUserController::class,'addToCart'])->name('cart.add');
+        // Route::POST('/addcart/{id}',[CartUserController::class,'addToCart'])->name('cart.add');
+        // Route::resource('/PrivateOrder',PrivateOrderController::class);
+        Route::resource('/contact', ContactUserController::class);
+        Route::resource('/cartupdate', UpdateOrderController::class);
+        Route::resource('/checkout', CheckoutController::class);
+        Route::resource('/profile', ProfileUserController::class)->middleware(['auth', 'verified']);
+        Route::resource('/single_product', SingleProductController::class);
+        Route::resource('/comment_product', CommentProductController::class);
+        Route::resource('/All_Product', AllProductController::class);
+        Route::POST('/search' , [SearchController::class , 'search'])->name('search');
+        Route::GET('/search' , [SearchController::class , 'search'])->name('search');
+        Route::resource('/blog', BlogController::class);
+  });
 
 
 
-// Route::get('/contact', function () {
-//   return view('contact');
-// });
+    // Route::get('/contact', function () {
+    //   return view('contact');
+    // });
 
 require __DIR__ . '/auth.php';
